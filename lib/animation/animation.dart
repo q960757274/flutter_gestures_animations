@@ -129,6 +129,16 @@ class _AnimationTestState extends State<AnimationTest> {
                 child: Text("Animation Other"),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                      context, AppConstants.ROUTE_ANIMATION_PHYSICAL);
+                },
+                child: Text("Animation Physical"),
+              ),
+            ),
           ],
         ),
       ),

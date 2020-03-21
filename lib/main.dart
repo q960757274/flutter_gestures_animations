@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gestures/animation/animation_physics_card_drag.dart';
 import 'package:flutter_gestures/gestures/gesture_page.dart';
 import 'package:flutter_gestures/gestures/pointer_page.dart';
 import 'package:flutter_gestures/utils.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         AppConstants.ROUTE_ANIMATION_HERO_B:(context) => new AnimationHeroBTest(),
         AppConstants.ROUTE_ANIMATION_SWITCHER:(context) => new AnimationSwitcherTest(),
         AppConstants.ROUTE_ANIMATION_OTHER:(context) => new AnimationOtherTest(),
+        AppConstants.ROUTE_ANIMATION_PHYSICAL:(context) => new AnimationPhysicsCardDragTest(),
 
       },
       theme: ThemeData(
