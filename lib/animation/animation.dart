@@ -241,7 +241,7 @@ class _NormalAnimationTestState extends State<NormalAnimationTest>
     _controller = new AnimationController(
         duration: new Duration(seconds: 3), vsync: this);
     _animation =
-        new CurvedAnimation(parent: _controller, curve: Curves.bounceIn);
+        new CurvedAnimation(parent: _controller, curve: Curves.linear);
 //    _animation = new Tween(begin: 0.0, end: 300.0).animate(_controller)
     _animation = new Tween(begin: 0.0, end: 300.0).animate(_animation)
       ..addListener(() {
