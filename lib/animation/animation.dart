@@ -5,6 +5,7 @@ import '../utils.dart';
 import 'animation_decoration.dart';
 import 'animation_frame.dart';
 import 'animation_siwtcher_transition.dart';
+import 'dart:math'as math;
 
 class AnimationTest extends StatefulWidget {
   AnimationTest({Key key}) : super(key: key);
@@ -240,10 +241,9 @@ class _NormalAnimationTestState extends State<NormalAnimationTest>
     super.initState();
     _controller = new AnimationController(
         duration: new Duration(seconds: 3), vsync: this);
-    _animation =
-        new CurvedAnimation(parent: _controller, curve: Curves.linear);
+    _animation = new CurvedAnimation(parent: _controller, curve: Curves.linear);
 //    _animation = new Tween(begin: 0.0, end: 300.0).animate(_controller)
-    _animation = new Tween(begin: 0.0, end: 300.0).animate(_animation)
+    _animation = new Tween(begin: 0.0, end: 360.0).animate(_animation)
       ..addListener(() {
         setState(() {});
       })
@@ -272,12 +272,25 @@ class _NormalAnimationTestState extends State<NormalAnimationTest>
         title: Text("NormalAnimationTest"),
       ),
       body: Center(
-        child: Image.asset(
-          "assets/images/ic_launcher.png",
-          width: _animation.value,
-          height: _animation.value,
-        ),
-      ),
+          child: Column(
+        children: <Widget>[
+          Transform(
+            transform: Matrix4.identity()
+              ..rotateY(_animation.value * math.pi / 180),
+            alignment: Alignment.center,
+            child: Image.asset(
+              "assets/images/ic_launcher.png",
+              width: 200,
+              height: 200,
+            ),
+          ),
+          Image.asset(
+            "assets/images/ic_launcher.png",
+            width: _animation.value,
+            height: _animation.value,
+          )
+        ],
+      )),
     );
   }
 }
